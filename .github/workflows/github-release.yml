@@ -46,7 +46,7 @@ jobs:
       inputs.node_tag != '' ||
       inputs.signer_tag != ''
     name: Andon Cord
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     environment: "Build Release"
     steps:
       - name: Check Approval
@@ -62,7 +62,7 @@ jobs:
       inputs.node_tag != '' ||
       inputs.signer_tag != ''
     name: Build Binaries
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     needs:
       - andon-cord
     permissions:
@@ -110,7 +110,7 @@ jobs:
       inputs.node_tag != '' ||
       inputs.signer_tag != ''
     name: Create Release
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     needs:
       - andon-cord
       - build-binaries
@@ -139,7 +139,7 @@ jobs:
       inputs.node_tag != '' ||
       inputs.signer_tag != ''
     name: Docker Image (Binary)
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     environment: "Push to Docker"
     permissions:
       id-token: write
@@ -178,7 +178,7 @@ jobs:
         inputs.signer_tag != ''
       )
     name: Create Downstream PR (${{ github.ref_name }})
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     needs:
       - andon-cord
       - build-binaries

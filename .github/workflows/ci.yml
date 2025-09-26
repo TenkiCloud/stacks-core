@@ -50,7 +50,7 @@ jobs:
   ##     - PR change is requested
   rustfmt:
     name: Rust Format
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     steps:
       - name: Rustfmt
         id: rustfmt
@@ -79,7 +79,7 @@ jobs:
       pull-requests: write
     needs:
       - rustfmt
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     outputs:
       node_tag: ${{ steps.check_release.outputs.node_tag }}
       node_docker_tag: ${{ steps.check_release.outputs.node_docker_tag }}
