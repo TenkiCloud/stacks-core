@@ -26,6 +26,8 @@ permissions:
   contents: write
   id-token: write
   attestations: write
+  pull-requests: write
+
 
 defaults:
   run:
