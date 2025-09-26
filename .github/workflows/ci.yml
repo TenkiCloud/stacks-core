@@ -65,6 +65,8 @@ jobs:
   ##  - is_signer_release: True if the branch represents a 'stacks-signer' release, false otherwise.
   check-release:
     name: Check Release
+    permissions:
+      contents: write
     needs:
       - rustfmt
     runs-on: ubuntu-latest
